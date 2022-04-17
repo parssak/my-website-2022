@@ -9,5 +9,36 @@
 }
 html,
 body {
-  @apply bg-gray-100 transition-all dark:bg-black dark:text-white selection:bg-emerald-300/50 dark:selection:bg-purple-600/50;
+  @apply bg-gray-100 transition-all dark:bg-black dark:text-white selection:bg-emerald-300/50 dark:selection:bg-rose-500/50 ;
+}
+
+body {
+  @apply overflow-x-hidden;
+}
+
+.gb1 {
+  background: conic-gradient(
+    from 177.73deg at 52.92% 56.47%,
+    #00fff0 0deg,
+    rgba(154, 75, 255, 0.741667) 110.62deg,
+    rgba(255, 0, 107, 0.62) 211.88deg,
+    rgba(39, 209, 244, 0.883475) 315deg,
+    #00fff0 360deg
+  );
+  filter: blur(100px);
+  border-radius: 100%;
+}
+
+.gb2 {
+  background: conic-gradient(
+    from 178.31deg at 52.92% 56.47%,
+    rgba(255, 0, 107, 0.76) -26.08deg,
+    rgba(82, 0, 255, 0.96) 43.12deg,
+    rgba(189, 0, 255, 0.6) 161.25deg,
+    rgba(104, 230, 255, 0.883475) 208.47deg,
+    rgba(255, 0, 107, 0.76) 333.92deg,
+    rgba(82, 0, 255, 0.96) 403.12deg
+  );
+  filter: blur(150px);
+  border-radius: 100%;
 }

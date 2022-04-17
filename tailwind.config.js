@@ -11,6 +11,16 @@ module.exports = {
         },
         center: true,
       },
+      keyframes: {
+        hueshift: {
+          "0%, 100%": { filter: "hue-rotate(0deg)" },
+          "50%": { filter: "hue-rotate(360deg)" },
+        },
+      },
+      animation: {
+        "spin-slow": "spin 50s linear infinite",
+        "hueshift": "hueshift 20s linear infinite",
+      },
     },
   },
   plugins: [],

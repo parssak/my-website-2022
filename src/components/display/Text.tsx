@@ -31,16 +31,16 @@ const Text = React.forwardRef(
       let variantClass = "";
       switch (variant) {
         case "h1":
-          variantClass = `${base} text-5xl font-semibold md:text-7xl tracking-tighter`;
+          variantClass = `${base} text-6xl font-semibold md:text-7xl tracking-tighter`;
           break;
         case "h2":
           variantClass = `${base} text-3xl md:text-4xl tracking-tight font-semibold`;
           break;
         case "h3":
-          variantClass = `${base} text-lg md:text-xl`;
+          variantClass = `${base} text-xl md:text-2xl tracking-tight font-medium`;
           break;
         case "h4":
-          variantClass = `${base} text-lg md:text-xl font-light`;
+          variantClass = `${base} text-lg font-base`;
           break;
         case "h5":
           variantClass = `${base} text-base font-medium`;
@@ -49,7 +49,7 @@ const Text = React.forwardRef(
           variantClass = `${base} text-sm font-medium`;
           break;
         case "body1":
-          variantClass = `${base} text-base md:text-lg text-gray-600 dark:text-white/80`;
+          variantClass = `${base} text-lg text-gray-600 dark:text-white/80`;
           console.debug(variantClass);
           break;
         case "body2":

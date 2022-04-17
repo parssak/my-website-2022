@@ -22,13 +22,9 @@ const Wave = () => {
 
   return (
     <mesh position={[0, 2, 0]} ref={meshRef}>
-      {/* <planeBufferGeometry args={[1, 2, 16, 16]} /> */}
       <torusBufferGeometry attach="geometry" args={[0.7, 0.2, 16, 64]} />
       {/* @ts-ignore */}
-      {/* <waveShaderMaterial uColor={"hotpink"} ref={ref} /> */}
-      {/* @ts-ignore */}
       <fresnelShaderMaterial uBaseColor="#fa1496" uFresnelColor="#b055fa" uFresnelPower={1} />
-      {/* <meshPhongMaterial attach="material" color="#34D399" /> */}
     </mesh>
   );
 };
@@ -68,7 +64,7 @@ const HeroSceneCanvas = () => {
 
 export default function HeroScene({}: Props) {
   return (
-    <Canvas className="w-full h-full filter invert dark:invert-0">
+    <Canvas camera={{ position: [0, 0, 3] }} className="w-full h-full filter invert dark:invert-0">
       <HeroSceneCanvas />
     </Canvas>
   );
