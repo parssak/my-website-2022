@@ -9,7 +9,7 @@ const FresnelShaderMaterial = shaderMaterial(
     uFresnelColor: new THREE.Color("#6FE7B7"),
     uFresnelPower: 1.5,
   },
-  `
+  /*glsl*/ `
     varying vec3 vWorldNormal;
     varying vec3 vViewDirection;
     void main() {
@@ -19,7 +19,7 @@ const FresnelShaderMaterial = shaderMaterial(
         gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
     }
     `,
-  `
+  /*glsl*/ `
     precision highp float;
     uniform vec3 uBaseColor;
     uniform vec3 uFresnelColor;
@@ -38,7 +38,7 @@ const FresnelShaderMaterial = shaderMaterial(
         // Mix the fresnel color and the base color
         vec3 color = mix(uFresnelColor, uBaseColor, inverseFresnelColor);
         gl_FragColor = vec4(fresnelFactor * uBaseColor + inverseFresnelColor * uFresnelColor, 1.0);
-  }
+    }
   `
 );
 

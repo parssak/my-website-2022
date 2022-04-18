@@ -6,8 +6,8 @@ module.exports = {
         padding: {
           DEFAULT: "1rem",
           sm: "2rem",
-          lg: "3rem",
-          xl: "6rem",
+          lg: "6rem",
+          xl: "12rem",
         },
         center: true,
       },
@@ -19,7 +19,7 @@ module.exports = {
       },
       animation: {
         "spin-slow": "spin 50s linear infinite",
-        "hueshift": "hueshift 20s linear infinite",
+        hueshift: "hueshift 20s linear infinite",
       },
     },
   },

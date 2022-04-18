@@ -53,7 +53,7 @@ const Text = React.forwardRef(
           console.debug(variantClass);
           break;
         case "body2":
-          variantClass = `${base} text-base`;
+          variantClass = `${base} text-base text-gray-700 dark:text-white/80`;
           break;
         case "caption":
           variantClass = `${base} text-xl md:text-2xl`;
