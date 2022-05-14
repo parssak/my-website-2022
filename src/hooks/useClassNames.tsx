@@ -6,8 +6,7 @@ export const useClassNames = (fn: () => Array<string | undefined | false>, deps:
     const classes = fn();
     // filter out undefined values
     const classList = classes.filter(Boolean).join(" ");
-    // return overrideTailwindClasses(classList);
-    return classList;
+    return overrideTailwindClasses(classList);
   }, deps);
 
   return classNames;

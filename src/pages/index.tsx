@@ -71,6 +71,7 @@ const Home: NextPage = () => {
       <div className="absolute z-0 right-0 left-0 -top-24">
         <HeroScene />
       </div>
+
       <div className="z-10">
         <main className="container md:min-h-screen grid lg:items-center overflow-hidden">
           <div className="mt-96 text-center lg:text-left relative ">
@@ -87,7 +88,7 @@ const Home: NextPage = () => {
             </Text>
 
             <div className="mt-8 flex flex-col lg:flex-row max-w-sm lg:max-w-none mx-auto lg:ml-0 space-y-4 lg:space-y-0 lg:space-x-2 overflow-visible pt-2 pb-10">
-              <Button size="xl" theme="primary" className="shadow-emerald-400">
+              <Button size="xl" theme="primary">
                 Get in touch
               </Button>
               <Button size="xl" theme="ghost">
@@ -113,8 +114,8 @@ const Home: NextPage = () => {
                 A frontend developer passionate about building useful tools.
               </Text>
               <Text variant="body1">
-                I'm experienced in building web apps in Next.js, websites with Vue.js, and component
-                libraries in React with TypeScript. I take accessibility and user experience very
+                I'm experienced in building web apps in Next.js, component libraries in React with
+                TypeScript, and websites with Vue.js. I take accessibility and user experience very
                 seriously.
               </Text>
               <Text variant="body1">
@@ -135,34 +136,31 @@ const Home: NextPage = () => {
               <button
                 key={experience.title}
                 className={`
-              flex
-              flex-col
-              p-5
-              border
-              md:text-left
-              items-center
-              md:items-start
-              rounded-lg
-              backdrop-blur-lg
-              transition-all
-              cursor-pointer
-              dark:bg-opacity-5
-              dark:hover:bg-opacity-10
-              border-zinc-200
-              /hover:shadow-md
-              /hover:shadow-gray-500/10
-              hover:border-emerald-500/30
-              /dark:hover:shadow-indigo-500/10
-              dark:hover:border-indigo-500/30
-              focus:outline-none
-              focus:border-emerald-500/30
-              dark:focus:border-indigo-500/30
-              bg-white
-              dark:border-zinc-900
-              ${index === 0 && "lg:col-span-4"}
-              ${index === 1 && "lg:col-span-3"}
-              ${index === 2 && "lg:col-span-3"}
-              ${index === 3 && "lg:col-span-4"}
+                  flex
+                  flex-col
+                  p-5
+                  border
+                  md:text-left
+                  items-center
+                  md:items-start
+                  rounded-lg
+                  backdrop-blur-lg
+                  transition-all
+                  cursor-pointer
+                  dark:bg-opacity-5
+                  dark:hover:bg-opacity-10
+                  border-zinc-200
+                  hover:border-emerald-500/30
+                  dark:hover:border-indigo-500/30
+                  focus:outline-none
+                  focus:border-emerald-500/30
+                  dark:focus:border-indigo-500/30
+                  bg-white
+                  dark:border-zinc-900
+                  ${index === 0 && "lg:col-span-4"}
+                  ${index === 1 && "lg:col-span-3"}
+                  ${index === 2 && "lg:col-span-3"}
+                  ${index === 3 && "lg:col-span-4"}
           `}
               >
                 <Text variant="h3" className="font-medium mb-1">
