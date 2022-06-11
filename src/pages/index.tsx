@@ -3,69 +3,11 @@ import type { NextPage } from "next";
 import { Text } from "components/display/Text";
 import { Button } from "components/inputs/Button";
 import HeroScene from "components/canvas/HeroScene";
-import { Badge } from "components/display/Badge";
+import { useState } from "react";
+import { Experiences } from "components/home/Experiences";
 
-type Technology =
-  | "React"
-  | "TypeScript"
-  | "SCSS"
-  | "TailwindCSS"
-  | "Go"
-  | "Redux"
-  | "Vue"
-  | "JavaScript"
-  | "NextJS"
-  | "Angular"
-  | "ThreeJS"
-  | "NodeJS";
-
-const technologyColorMap: Record<Technology, any> = {
-  React: "cyan",
-  TypeScript: "blue",
-  Go: "sky",
-  SCSS: "pink",
-  Redux: "purple",
-  Vue: "green",
-  JavaScript: "yellow",
-  NextJS: "gray",
-  Angular: "red",
-  ThreeJS: "rose",
-  TailwindCSS: "sky",
-  NodeJS: "orange",
-};
 const Home: NextPage = () => {
-  const experiences = [
-    {
-      title: "Airborne",
-      when: "April 2021 - August 2021",
-      role: "Full Stack Developer Intern",
-      description:
-        "Developed sales-engagement web app for creating sales sequences, sending emails, and tracking performance.",
-      technologies: ["React", "TypeScript", "Redux", "SCSS", "Go"],
-    },
-    {
-      title: "Air Whistle Media",
-      when: "June 2021 - Current",
-      role: "Frontend Developer",
-      description: "Worked alongside designers to build responsive, AODA-compliant websites.",
-      technologies: ["Vue", "JavaScript", "Angular", "ThreeJS"],
-    },
-    {
-      title: "Demand Science",
-      when: "September 2021 - April 2022",
-      role: "Frontend Developer",
-      description:
-        "Developed custom UI components for the Demand Science platform, as well as Leadiro.",
-      technologies: ["React", "TypeScript", "NextJS", "TailwindCSS"],
-    },
-    {
-      title: "Fig",
-      when: "April 2022 - Current",
-      role: "Frontend Developer",
-      description: "Developing a custom UI library for Fig, and maintaining the Fig website.",
-      technologies: ["React", "TypeScript", "NextJS", "TailwindCSS", "NodeJS"],
-    },
-  ];
+
   return (
     <>
       <div className="absolute z-0 right-0 left-0 -top-24">
@@ -107,7 +49,7 @@ const Home: NextPage = () => {
               <div className="gb1 w-[40rem] h-[40rem] absolute -top-24 right-[-20rem] duration-300 animate-spin-slow origin-center opacity-20  transition-all pointer-events-none"></div>
             </div>
             <Text variant="h2" className="mb-4">
-              Who I am
+              Who am I?
             </Text>
             <div className="space-y-4 max-w-xl">
               <Text variant="body1" className="font-medium">
@@ -119,7 +61,7 @@ const Home: NextPage = () => {
                 seriously.
               </Text>
               <Text variant="body1">
-                In my free time, I enjoy tinkering with all sorts of technologies and learning new
+                In my free time, I love tinkering with all sorts of technologies and learning new
                 things. I'm currently exploring reinforcement learning with PyTorch, and Unity
                 MLAgents.
               </Text>
@@ -131,62 +73,7 @@ const Home: NextPage = () => {
           <Text variant="h2" className="mb-6">
             What I've Done
           </Text>
-          <div className="grid gap-4 lg:grid-rows-2 lg:grid-cols-7">
-            {experiences.map((experience, index) => (
-              <button
-                key={experience.title}
-                className={`
-                  flex
-                  flex-col
-                  p-5
-                  border
-                  md:text-left
-                  items-center
-                  md:items-start
-                  rounded-lg
-                  backdrop-blur-lg
-                  transition-all
-                  cursor-pointer
-                  dark:bg-opacity-5
-                  dark:hover:bg-opacity-10
-                  border-zinc-200
-                  hover:border-emerald-500/30
-                  dark:hover:border-indigo-500/30
-                  focus:outline-none
-                  focus:border-emerald-500/30
-                  dark:focus:border-indigo-500/30
-                  bg-white
-                  dark:border-zinc-900
-                  ${index === 0 && "lg:col-span-4"}
-                  ${index === 1 && "lg:col-span-3"}
-                  ${index === 2 && "lg:col-span-3"}
-                  ${index === 3 && "lg:col-span-4"}
-          `}
-              >
-                <Text variant="h3" className="font-medium mb-1">
-                  {experience.title}
-                </Text>
-                <Text variant="h4" className="mb-0.5">
-                  {experience.role}
-                </Text>
-                <Text variant="h6" className="mb-2">
-                  {experience.when}
-                </Text>
-                <Text variant="body2" className="max-w-lg">
-                  {experience.description}
-                </Text>
-                {
-                  <div className="flex items-center justify-center md:justify-start flex-wrap gap-2 mt-auto pt-4">
-                    {experience.technologies.map((technology) => (
-                      <Badge color={technologyColorMap[technology as Technology]} key={technology}>
-                        {technology}
-                      </Badge>
-                    ))}
-                  </div>
-                }
-              </button>
-            ))}
-          </div>
+          <Experiences />
         </div>
       </div>
     </>
