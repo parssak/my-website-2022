@@ -22,7 +22,7 @@ const Scene = () => {
 
   useShaders();
 
-  useFrame(({ clock }) => {
+  useFrame(() => {
     const torusExists = !!torusRef.current;
     const outlineExists = !!outlineRef.current;
 
