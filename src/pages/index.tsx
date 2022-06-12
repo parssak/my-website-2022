@@ -5,6 +5,7 @@ import { Button } from "components/inputs/Button";
 import HeroScene from "components/canvas/HeroScene";
 import { useState } from "react";
 import { Experiences } from "components/home/Experiences";
+import Image from "next/image";
 
 const Home: NextPage = () => {
   return (
@@ -40,11 +41,23 @@ const Home: NextPage = () => {
         </main>
 
         <section className="container">
-          <div className="py-24 grid gap-12 lg:grid-cols-2 overflow-hidden border-2 border-zinc-200 dark:border-zinc-700 rounded-2xl">
-            <div className="grid place-items-center italic text-center">
-              [[ insert particle thing here ]]
+          <div className="grid gap-6 p-6 xl:grid-cols-2 border-2 overflow-hidden  border-primary rounded-2xl">
+            <div className="rounded-xl p-6 grid place-items-center border-2 border-primary overflow-hidden relative">
+              <div className="filter animate-hueshift absolute top-0 right-0">
+                <div className="gb1 w-[40rem] h-[60rem]  duration-300 animate-spin-slow origin-center opacity-20 transition-all pointer-events-none" />
+              </div>
+              <div className="object-cover w-48  md:w-64 h-48 md:h-64 ">
+                <Image
+                  src="/me.png"
+                  alt="memoji of me"
+                  className="relative"
+                  layout="responsive"
+                  width="100%"
+                  height="100%"
+                />
+              </div>
             </div>
-            <div className="relative px-6 lg:pr-6">
+            <div className="relative py-6 lg:py-12 xl:py-24 ">
               <div className="filter animate-hueshift">
                 <div className="gb1 w-[40rem] h-[60rem] absolute -top-24 right-[-20rem] duration-300 animate-spin-slow origin-center opacity-20 transition-all pointer-events-none" />
               </div>
@@ -57,9 +70,9 @@ const Home: NextPage = () => {
                     A frontend developer passionate about building useful tools.
                   </Text>
                   <Text variant="body1">
-                    I'm experienced in building web apps in Next.js, component libraries in React
-                    with TypeScript, and websites with Vue.js. I take accessibility and user
-                    experience very seriously.
+                    I'm experienced in building web apps in Next.js, UI libraries in React with
+                    TypeScript, and websites with Vue.js. I take accessibility and user experience
+                    very seriously.
                   </Text>
                   <Text variant="body1">
                     In my free time, I love tinkering with all sorts of technologies and learning
