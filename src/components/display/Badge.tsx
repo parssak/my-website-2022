@@ -1,19 +1,8 @@
+import { TailwindColor } from "data";
 import { useClassNames } from "hooks/useClassNames";
 import React from "react";
 
-type BadgeColor =
-  | "red"
-  | "yellow"
-  | "green"
-  | "blue"
-  | "cyan"
-  | "sky"
-  | "purple"
-  | "pink"
-  | "indigo"
-  | "gray"
-  | "rose"
-  | "orange";
+
 
 // border-red-700 border-yellow-700 border-green-700 border-blue-700 border-cyan-700 border-sky-700 border-purple-700 border-pink-700 border-indigo-700 border-gray-700 border-rose-700 border-orange-700
 // bg-red-200 bg-yellow-200 bg-green-200 bg-blue-200 bg-cyan-200 bg-sky-200 bg-purple-200 bg-pink-200 bg-indigo-200 bg-gray-200 bg-rose-200 bg-orange-200
@@ -23,7 +12,7 @@ type BadgeColor =
 // dark:text-red-300 dark:text-yellow-300 dark:text-green-300 dark:text-blue-300 dark:text-cyan-300 dark:text-sky-300 dark:text-purple-300 dark:text-pink-300 dark:text-indigo-300 dark:text-gray-300 dark:text-rose-300 dark:text-orange-300
 
 export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
-  color?: BadgeColor;
+  color?: TailwindColor;
   size?: "md" | "lg";
   rounded?: boolean;
   outline?: boolean;

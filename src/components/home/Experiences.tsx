@@ -2,106 +2,7 @@ import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Text, Badge } from "../display";
 import { useRouter } from "next/router";
-
-type Technology =
-  | "React"
-  | "TypeScript"
-  | "SCSS"
-  | "TailwindCSS"
-  | "Go"
-  | "Redux"
-  | "Vue"
-  | "JavaScript"
-  | "NextJS"
-  | "Angular"
-  | "ThreeJS"
-  | "NodeJS";
-
-const technologyColorMap: Record<Technology, any> = {
-  React: "cyan",
-  TypeScript: "blue",
-  Go: "sky",
-  SCSS: "pink",
-  Redux: "purple",
-  Vue: "green",
-  JavaScript: "yellow",
-  NextJS: "gray",
-  Angular: "red",
-  ThreeJS: "rose",
-  TailwindCSS: "sky",
-  NodeJS: "orange"
-};
-
-interface Experience {
-  title: string;
-  when: string;
-  startDate: Date;
-  endDate: Date;
-  role: string;
-  description: string;
-  coverImages: {
-    light: string;
-    dark: string;
-  };
-  technologies: Technology[];
-}
-
-const experiences: Experience[] = [
-  {
-    title: "Airborne",
-    when: "April 2021 - August 2021",
-    startDate: new Date("2021-04-01"),
-    endDate: new Date("2021-08-01"),
-    role: "Full Stack Developer Intern",
-    coverImages: {
-      light: "/airborne/logo.png",
-      dark: "/airborne/logo-dark.png"
-    },
-    description:
-      "Developed sales-engagement web app for creating sales sequences, sending emails, and tracking performance.",
-    technologies: ["React", "TypeScript", "Redux", "SCSS", "Go"]
-  },
-  {
-    title: "Air Whistle Media",
-    when: "June 2021 - Current",
-    startDate: new Date("2020-06-01"),
-    endDate: new Date(),
-    role: "Frontend Developer",
-    coverImages: {
-      light: "/airwhistle/logo.svg",
-      dark: "/airwhistle/logo-dark.svg"
-    },
-    description: "Worked alongside designers to build responsive, AODA-compliant websites.",
-    technologies: ["Vue", "JavaScript", "Angular", "ThreeJS"]
-  },
-  {
-    title: "Demand Science",
-    when: "September 2021 - April 2022",
-    startDate: new Date("2021-09-01"),
-    endDate: new Date("2021-04-01"),
-    role: "Frontend Developer",
-    coverImages: {
-      light: "/demand-science/logo.svg",
-      dark: "/demand-science/logo-dark.svg"
-    },
-    description:
-      "Developed custom UI components for the Demand Science platform, as well as Leadiro.",
-    technologies: ["React", "TypeScript", "NextJS", "TailwindCSS"]
-  },
-  {
-    title: "Fig",
-    when: "April 2022 - Current",
-    startDate: new Date("2022-04-01"),
-    endDate: new Date(),
-    role: "Frontend Developer",
-    coverImages: {
-      light: "/fig/logo.svg",
-      dark: "/fig/logo-dark.svg"
-    },
-    description: "Developing a custom UI library for Fig, and maintaining the Fig website.",
-    technologies: ["React", "TypeScript", "NextJS", "TailwindCSS", "NodeJS"]
-  }
-];
+import { Experience, experiences, Technology, technologyColorMap } from "data";
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {}
 
@@ -129,7 +30,6 @@ export const Experiences = ({ ...props }: Props) => {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      console.debug(e.key);
       switch (e.key) {
         case "ArrowRight":
           if (selectedExperience) {
@@ -190,49 +90,51 @@ export const Experiences = ({ ...props }: Props) => {
   return (
     <div {...props}>
       <div className="grid gap-6 lg:grid-cols-2">
-        {experiences.map((experience) => (
-          <motion.button
-            key={experience.title}
-            layoutId={toKebabCase(experience.title)}
-            onClick={() => onExperienceClick(experience)}
-            onFocus={() => onExperienceClick(undefined)}
-            className={`${cardStyles}`}
-          >
-            <motion.div className="h-48 w-full grid place-items-center overflow-hidden relative  border-b-2 border-primary dark:bg-black">
-              <div className="filter animate-hueshift absolute bottom-0 right-0 top-0">
-                <div className="gb1 w-[40rem] h-[60rem] duration-300 origin-center opacity-20 transition-all pointer-events-none" />
-              </div>
-              <motion.img
-                src={experience.coverImages.light}
-                className="w-3/4 md:h-12 md:w-1/2 object-scale-down transition-transform duration-300 group-hover:scale-110 dark:hidden relative"
-              />
-              <motion.img
-                src={experience.coverImages.dark}
-                className="w-3/4 md:h-12 md:w-1/2 object-scale-down transition-transform duration-300 group-hover:scale-110 hidden dark:block relative"
-              />
-            </motion.div>
-            <motion.div className="w-full flex flex-col items-center md:items-start p-6">
-              <motion.div className="flex flex-col md:flex-row justify-between w-full items-center xl:items-start">
-                <Text variant="h3" className="font-medium" as={motion.h3}>
-                  {experience.title}
-                </Text>
-                <Text variant="h6" as={motion.h6}>
-                  {experience.when}
-                </Text>
+        {experiences
+          .filter((e) => e.type === "work")
+          .map((experience) => (
+            <motion.button
+              key={experience.title}
+              layoutId={toKebabCase(experience.title)}
+              onClick={() => onExperienceClick(experience)}
+              onFocus={() => onExperienceClick(undefined)}
+              className={`${cardStyles}`}
+            >
+              <motion.div className="h-48 w-full grid place-items-center overflow-hidden relative  border-b-2 border-primary dark:bg-black">
+                <div className="filter animate-hueshift absolute bottom-0 right-0 top-3/4">
+                  <div className="gb1 w-[40rem] h-[60rem] duration-300 origin-center opacity-20 transition-all pointer-events-none" />
+                </div>
+                <motion.img
+                  src={experience.coverImages.light}
+                  className="w-3/4 h-12 md:w-1/2 object-scale-down transition-transform duration-300 group-hover:scale-110 dark:hidden relative"
+                />
+                <motion.img
+                  src={experience.coverImages.dark}
+                  className="w-3/4 h-12 md:w-1/2 object-scale-down transition-transform duration-300 group-hover:scale-110 hidden dark:block relative"
+                />
               </motion.div>
-              <Text variant="h5" className="mt-2 md:mt-0" as={motion.h5}>
-                {experience.role}
-              </Text>
-              <motion.div className="flex items-center justify-center md:justify-start flex-wrap gap-2 mt-auto pt-4">
-                {experience.technologies.map((technology) => (
-                  <Badge color={technologyColorMap[technology as Technology]} key={technology}>
-                    {technology}
-                  </Badge>
-                ))}
+              <motion.div className="w-full flex flex-col items-center md:items-start p-6">
+                <motion.div className="flex flex-col md:flex-row justify-between w-full items-center xl:items-start">
+                  <Text variant="h3" className="font-medium" as={motion.h3}>
+                    {experience.title}
+                  </Text>
+                  <Text variant="h6" as={motion.h6}>
+                    {experience.when}
+                  </Text>
+                </motion.div>
+                <Text variant="h5" className="mt-2 md:mt-0" as={motion.h5}>
+                  {experience.role}
+                </Text>
+                <motion.div className="flex items-center justify-center md:justify-start flex-wrap gap-2 mt-auto pt-4">
+                  {experience.technologies.map((technology) => (
+                    <Badge color={technologyColorMap[technology]} key={technology}>
+                      {technology}
+                    </Badge>
+                  ))}
+                </motion.div>
               </motion.div>
-            </motion.div>
-          </motion.button>
-        ))}
+            </motion.button>
+          ))}
       </div>
       <AnimatePresence>
         {selectedExperience && (
@@ -284,7 +186,7 @@ export const Experiences = ({ ...props }: Props) => {
                   </Text>
                   <motion.div className="flex items-center flex-wrap gap-2 mt-auto pt-6">
                     {selectedExperience.technologies.map((technology) => (
-                      <Badge color={technologyColorMap[technology as Technology]} key={technology}>
+                      <Badge color={technologyColorMap[technology]} key={technology}>
                         {technology}
                       </Badge>
                     ))}

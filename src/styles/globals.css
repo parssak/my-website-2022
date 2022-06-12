@@ -7,6 +7,10 @@
   .border-primary {
     @apply border-zinc-200 dark:border-zinc-700;
   }
+
+  .border-primary-active {
+    @apply border-zinc-300 dark:border-zinc-600;
+  }
 }
 
 * {

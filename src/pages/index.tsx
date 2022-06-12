@@ -1,10 +1,10 @@
 /* eslint-disable react/no-unescaped-entities */
 import type { NextPage } from "next";
+import HeroScene from "components/canvas/HeroScene";
 import { Text } from "components/display/Text";
 import { Button } from "components/inputs/Button";
-import HeroScene from "components/canvas/HeroScene";
-import { useState } from "react";
 import { Experiences } from "components/home/Experiences";
+import { Timeline } from "components/home/Timeline";
 import Image from "next/image";
 
 const Home: NextPage = () => {
@@ -100,6 +100,22 @@ const Home: NextPage = () => {
             <div className="gb2 w-[32rem] h-[24rem] rotate-[-80deg] opacity-20 transition-all pointer-events-none" />
           </div>
         </div>
+      </div>
+
+      <div className="border-y-2 border-primary">
+        <div className="container py-24">
+          <Text variant="h2" className="mb-6">
+            Timeline
+          </Text>
+
+          <Timeline />
+        </div>
+      </div>
+
+      <div className="container py-24">
+        <Text variant="h2" className="mb-6">
+          Timeline
+        </Text>
       </div>
     </>
   );
